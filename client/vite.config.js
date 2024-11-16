@@ -30,10 +30,7 @@ export default defineConfig(({ mode }) => {
             },
     },
     build: {
-      outDir:
-        env.VITE_NODE_ENV === "production"
-          ? path.resolve(__dirname, "dist")
-          : path.resolve(__dirname, "../server/dist"),
+      outDir: path.resolve(__dirname, "dist"),
       rollupOptions: {
         output: {
           manualChunks: {
