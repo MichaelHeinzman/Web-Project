@@ -7,9 +7,7 @@ This project is a full-stack web application built with a React frontend and an 
 
 ## **Features**
 
-### ** Start Both (After installing dependencies on both)**
-cd web-project
-npm run start
+
 
 ### **Frontend**
 - Built with **React** using Vite for a fast and modern development experience.
@@ -74,6 +72,11 @@ Install dependencies for both the frontend and backend:
    cd client
    npm run dev
    ```
+3. **Start both frontend and backend**
+  ```bash
+  cd web-project
+  npm run start
+  ```
 
 The app will be available at `http://localhost:5173` for the frontend, and the API will run on `http://localhost:5000`.
 
