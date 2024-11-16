@@ -35,5 +35,10 @@ export default [
         { allowConstantExport: true },
       ],
     },
+    env: {
+      browser: true,
+      node: true, // Add this to enable Node.js globals like `process`
+      es2021: true,
+    },
   },
 ];

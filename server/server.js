@@ -15,25 +15,40 @@ app.use(compression());
 // Middleware for JSON parsing
 app.use(express.json());
 
-// Serve static files from React build
-app.use(express.static(path.join(__dirname, "dist")));
-
-// API router
+// API routes - must come before static file serving
 app.use("/api", apiRouter);
 
-// Error handling
+// Serve static files for React
+if (process.env.NODE_ENV !== "production") {
+  console.log("Serving static files for local development...");
+  app.use(express.static(path.join(__dirname, "../client/dist")));
+
+  // Catch-all route to serve React app
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+  });
+} else {
+  // Production static file serving (ensure you deploy client/dist)
+  app.use(express.static(path.join(__dirname, "dist")));
+
+  // Catch-all route to serve React app
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "dist/index.html"));
+  });
+}
+
+// Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send("Internal Server Error");
 });
 
-// Catch-all route to serve React app
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "dist", "index.html"));
-});
-
 // Start the server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+if (process.env.NODE_ENV !== "production") {
+  app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+  });
+}
+
+module.exports = app;
