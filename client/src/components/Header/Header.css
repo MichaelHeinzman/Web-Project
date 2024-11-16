@@ -1,0 +1,109 @@
+.header-container {
+  background-color: var(--primary-color);
+  color: var(--white);
+  width: 100%;
+}
+
+.header-wrapper {
+  margin: auto;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  width: 100%;
+  max-width: var(--main-content-width);
+}
+
+.header-logo h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.header-nav {
+  display: flex;
+  gap: 15px;
+  transition: transform 0.3s ease;
+}
+
+.header-nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.header-nav a:hover {
+  color: var(--accent-color);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.hamburger-line {
+  width: 25px;
+  height: 3px;
+  background-color: var(--white);
+  margin: 3px 0;
+  transition: all 0.3s ease;
+}
+
+.hamburger.open .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .header-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    background-color: var(--primary-color);
+    width: 250px;
+    flex-direction: column;
+    align-items: flex-start; /* Align links to the top-left */
+    padding-top: 20px;
+    padding-left: 15px;
+    transform: translateX(100%); /* Hide off-screen */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+
+  .header-nav.open {
+    transform: translateX(0); /* Slide in from the right */
+  }
+
+  .header-nav a {
+    padding: 15px 0;
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .header-nav a:last-child {
+    border-bottom: none;
+  }
+}

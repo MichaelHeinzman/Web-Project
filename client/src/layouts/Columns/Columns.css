@@ -1,0 +1,31 @@
+.columns-layout {
+  display: grid;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* Default column layout based on the column count */
+.columns-1 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.columns-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.columns-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.columns-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Add as many column classes as needed for larger layouts */
+
+/* Responsive layout for small screens (mobile and small tablets) */
+@media (max-width: 768px) {
+  .columns-layout {
+    grid-template-columns: 1fr; /* Single column on screens smaller than 768px */
+  }
+}

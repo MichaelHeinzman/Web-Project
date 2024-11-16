@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #3366cc; /* Softer blue for primary color */
+  --accent-color: #ffcc00; /* Yellow accent for contrast */
+  --background-color: #f4f4f9; /* Light gray background */
+  --text-color: #333333; /* Dark gray for text */
+  --white: #ffffff;
+  --spacing: 10px;
+  --main-content-width: 1232px;
+}
+
+body {
+  margin: 0;
+}

@@ -1,0 +1,15 @@
+.home-title {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-align: left;
+  text-align: center;
+}
+
+.home-description {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  line-height: 1.6;
+  text-align: left;
+  text-align: center;
+}

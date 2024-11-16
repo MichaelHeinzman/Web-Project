@@ -1,0 +1,22 @@
+.status-box {
+  background: linear-gradient(135deg, #ffffff, #f0f4f8);
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  padding: 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.status-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.status-box p {
+  font-size: 1rem;
+  color: var(--text-color);
+}
