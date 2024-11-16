@@ -7,6 +7,10 @@ This project is a full-stack web application built with a React frontend and an 
 
 ## **Features**
 
+### ** Start Both (After installing dependencies on both)**
+cd web-project
+npm run start
+
 ### **Frontend**
 - Built with **React** using Vite for a fast and modern development experience.
 - Responsive **UserForm** and **StatusBox** components:
