@@ -7,8 +7,5 @@
       "config": { "distDir": "client/dist" }
     }
   ],
-  "routes": [
-    { "src": "/api/(.*)", "dest": "/server/api" },
-    { "src": "/(.*)", "dest": "/client" }
-  ]
+  "routes": [{ "src": "/api/(.*)", "dest": "/server/api" }]
 }
