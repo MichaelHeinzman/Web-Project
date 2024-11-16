@@ -18,9 +18,12 @@ const usersRouter = require("./users");
 router.use("/api/users", usersRouter);
 app.use(router);
 
+// Remove static file serving and catch-all route
+// These are not needed when deploying to Vercel
+
 // Start the server (only if running locally)
 if (require.main === module) {
-  app.listen(3000, () => console.log("Server ready on port 3000."));
+  app.listen(5000, () => console.log("Server ready on port 5000."));
 }
 
 // Export app for Vercel

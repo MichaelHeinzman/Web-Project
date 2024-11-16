@@ -9,13 +9,14 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Load environment variables
-dotenv.config(); // Load .env into process.env
+dotenv.config();
 
 export default defineConfig(({ mode }) => {
   // Manually load the environment variables for use in config
   const env = dotenv.config().parsed || {};
 
   return {
+    base: "/", // Add this line to set the base path to the root
     plugins: [react()],
     server: {
       proxy:
@@ -23,7 +24,7 @@ export default defineConfig(({ mode }) => {
           ? undefined
           : {
               "/api": {
-                target: env.VITE_API_URL || "http://localhost:3000",
+                target: env.VITE_API_URL || "http://localhost:5000",
                 changeOrigin: true,
                 secure: false,
               },
@@ -31,7 +32,7 @@ export default defineConfig(({ mode }) => {
     },
     build: {
       emptyOutDir: true, // Clear output directory before each build
-      outDir: "dist",
+      outDir: path.resolve(__dirname, "dist"),
       rollupOptions: {
         output: {
           manualChunks: {

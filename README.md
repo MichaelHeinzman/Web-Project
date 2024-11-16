@@ -1,4 +1,3 @@
-
 # **Web Project**
 
 This project is a full-stack web application built with a React frontend and an Express backend. The app includes responsive layouts, dynamic components, and utilizes Git for version control. Below is a summary of the key features, components, and steps we implemented today.
@@ -6,10 +5,11 @@ This project is a full-stack web application built with a React frontend and an 
 ---
 
 ## **Features**
+
 Vercel Hosting
 
-
 ### **Frontend**
+
 - Built with **React** using Vite for a fast and modern development experience.
 - Responsive **UserForm** and **StatusBox** components:
   - UserForm allows creating new users with dynamic validation.
@@ -23,12 +23,14 @@ Vercel Hosting
   - Root-level CSS variables for consistent theming.
 
 ### **Backend**
+
 - Powered by **Express.js**.
 - Includes RESTful API routes for creating and fetching users.
 - Middleware for parsing JSON requests.
 - Static file serving for the React build.
 
 ### **Deployment**
+
 - GitHub repository setup:
   - Added a `.gitignore` file to ignore unnecessary files (e.g., `node_modules`).
   - Configured Git remotes for proper version control.
@@ -39,15 +41,18 @@ Vercel Hosting
 ## **Project Setup**
 
 ### **Clone the Repository**
+
 ```bash
 git clone https://github.com/michaelheinzman/Web-Project.git
 cd Web-Project
 ```
 
 ### **Install Dependencies**
+
 Install dependencies for both the frontend and backend:
 
 1. **Frontend (React)**:
+
    ```bash
    cd client
    npm install
@@ -62,6 +67,7 @@ Install dependencies for both the frontend and backend:
 ### **Run the Project**
 
 1. **Start the Backend**:
+
    ```bash
    cd server
    npm start
@@ -73,10 +79,11 @@ Install dependencies for both the frontend and backend:
    npm run dev
    ```
 3. **Start both frontend and backend**
-  ```bash
-  cd web-project
-  npm run start
-  ```
+
+```bash
+cd web-project
+npm run start
+```
 
 The app will be available at `http://localhost:5173` for the frontend, and the API will run on `http://localhost:5000`.
 
@@ -85,18 +92,21 @@ The app will be available at `http://localhost:5173` for the frontend, and the A
 ## **Components**
 
 ### **1. UserForm**
+
 - A form component that allows users to input their name and email.
 - Features:
   - Client-side validation.
   - Submission feedback (loading, success, error).
 
 ### **2. StatusBox**
+
 - Dynamically updates based on the form submission status:
   - **Loading**: Displays a spinner.
   - **Success**: Shows a success icon and message.
   - **Error**: Displays an error icon and message.
 
 ### **3. ColumnsLayout**
+
 - A reusable component for dynamically generating column layouts.
 - Features:
   - Takes a `columns` prop to determine the number of columns.
@@ -106,6 +116,7 @@ The app will be available at `http://localhost:5173` for the frontend, and the A
 ---
 
 ## **Responsive Design**
+
 - **Full Width Layout**: The background spans the entire width of the screen.
 - **Content Width Restriction**: The layout's content never exceeds the `--main-content-width` variable for readability.
 - **Media Queries**: Ensures mobile-friendly layouts by stacking components on smaller screens.
@@ -113,6 +124,7 @@ The app will be available at `http://localhost:5173` for the frontend, and the A
 ---
 
 ## **Project Structure**
+
 ```plaintext
 Web Project/
 ├── client/                # React frontend
@@ -140,6 +152,7 @@ Web Project/
 ## **What We Accomplished Today**
 
 1. **Frontend Development**:
+
    - Created the `UserForm` component with real-time validation and submission handling.
    - Built the `StatusBox` component for dynamic status updates (loading, success, error).
    - Designed a responsive `ColumnsLayout` component for reusable grid-based layouts.
@@ -147,6 +160,7 @@ Web Project/
    - Integrated root-level CSS variables for consistent theming (`--main-content-width`).
 
 2. **Backend Setup**:
+
    - Built an Express.js server to handle API requests.
    - Configured RESTful routes for creating and retrieving users.
 
@@ -158,6 +172,7 @@ Web Project/
 ---
 
 ## **Future Enhancements**
+
 - Add authentication and user management features.
 - Integrate a database (e.g., MongoDB or PostgreSQL) for persistent data storage.
 - Deploy the app to a cloud provider (e.g., Vercel for frontend, Heroku for backend).
