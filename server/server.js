@@ -14,23 +14,15 @@ app.use(compression());
 
 // Middleware for JSON parsing
 app.use(express.json());
-app.get("/api/hello", (req, res) => {
-  res.send("Hello from Vercel!");
-});
 
-// Serve static files for React
-console.log("Serving static files for local development...");
+// API routes - must be mounted before static file serving
+app.use("/api", apiRouter);
+
+// Serve static files
 app.use(express.static(path.join(__dirname, "../client/dist")));
-
-// Catch-all route to serve React app
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/dist/index.html"));
 });
 
-// Start the server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
-
+// Export app for Vercel
 module.exports = app;
