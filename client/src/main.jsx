@@ -14,3 +14,14 @@ createRoot(document.getElementById("root")).render(
     </QueryClientProvider>
   </StrictMode>
 );
+
+// Wait for the DOM to fully load
+document.addEventListener("DOMContentLoaded", () => {
+  // Set a timeout to delay loading the script
+  setTimeout(() => {
+    const script = document.createElement("script");
+    script.src = window.origin + "/src/delayed/index.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, 3000);
+});
