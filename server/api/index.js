@@ -21,7 +21,9 @@ router.use("/api/users", usersRouter);
 app.use(router);
 
 // Serve static files
-app.use(express.static(path.resolve(__dirname, "../../client/dist")));
+app.use(
+  express.static(path.resolve(__dirname, "../../client/dist/index.html"))
+);
 
 // Catch-all route for React app
 app.get("*", (req, res) => {
