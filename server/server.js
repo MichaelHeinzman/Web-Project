@@ -19,33 +19,12 @@ app.use(express.json());
 app.use("/api", apiRouter);
 
 // Serve static files for React
-if (process.env.NODE_ENV !== "production") {
-  console.log("Serving static files for local development...");
-  app.use(express.static(path.join(__dirname, "../client/dist")));
+console.log("Serving static files for local development...");
+app.use(express.static(path.join(__dirname, "../client/dist")));
 
-  // Catch-all route to serve React app
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../client/dist/index.html"));
-  });
-} else {
-  // Production static file serving (ensure you deploy client/dist)
-  app.use(express.static(path.join(__dirname, "dist")));
-
-  // Catch-all route to serve React app
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "dist/index.html"));
-  });
-}
-
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send("Internal Server Error");
-});
-
-// Handle 404 for API routes
-app.use("/api", (req, res) => {
-  res.status(404).json({ error: "API route not found" });
+// Catch-all route to serve React app
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
 });
 
 // Start the server
@@ -56,6 +35,4 @@ if (process.env.NODE_ENV !== "production") {
   });
 }
 
-module.exports = (req, res) => {
-  app(req, res);
-};
+module.exports = app;
