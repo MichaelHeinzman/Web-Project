@@ -43,6 +43,11 @@ app.use((err, req, res, next) => {
   res.status(500).send("Internal Server Error");
 });
 
+// Handle 404 for API routes
+app.use("/api", (req, res) => {
+  res.status(404).json({ error: "API route not found" });
+});
+
 // Start the server
 const PORT = process.env.PORT || 5000;
 if (process.env.NODE_ENV !== "production") {
@@ -51,4 +56,6 @@ if (process.env.NODE_ENV !== "production") {
   });
 }
 
-module.exports = app;
+module.exports = (req, res) => {
+  app(req, res);
+};
