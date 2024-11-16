@@ -16,7 +16,8 @@
   "routes": [
     { "src": "/api/(.*)", "dest": "/server/api" },
     { "handle": "filesystem" },
-    { "src": "/assets/(.*)", "dest": "client/assets" },
+
     { "src": "/(.*)", "dest": "client/index.html" }
-  ]
+  ],
+  "redirects": [{ "source": "/assets/(.*)", "destination": "client/assets" }]
 }
