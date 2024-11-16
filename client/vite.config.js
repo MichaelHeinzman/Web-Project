@@ -31,7 +31,7 @@ export default defineConfig(({ mode }) => {
     },
     build: {
       emptyOutDir: true, // Clear output directory before each build
-      outDir: path.resolve(__dirname, "dist"),
+      outDir: "dist",
       rollupOptions: {
         output: {
           manualChunks: {

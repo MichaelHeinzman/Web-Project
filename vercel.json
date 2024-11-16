@@ -1,11 +1,21 @@
 {
   "builds": [
-    { "src": "server/api/**/*.js", "use": "@vercel/node" },
     {
-      "src": "client/dist/**/*",
+      "src": "client/package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "client/dist" }
+      "config": {
+        "distDir": "dist",
+        "buildCommand": "npm install && npm run build"
+      }
+    },
+    {
+      "src": "server/api/**/*.js",
+      "use": "@vercel/node"
     }
   ],
-  "routes": [{ "src": "/api/(.*)", "dest": "/server/api" }]
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/server/api/" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/client/dist/$1" }
+  ]
 }
