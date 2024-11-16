@@ -21,7 +21,12 @@ router.use("/api/users", usersRouter);
 app.use(router);
 
 // Serve static files
-app.use(express.static(path.join(__dirname, "../../client/dist")));
+app.use(express.static(path.resolve(__dirname, "../../client/dist")));
+
+// Catch-all route for React app
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../../client/dist/index.html"));
+});
 
 app.listen(3000, () => console.log("Server ready on port 3000."));
 
