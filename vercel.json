@@ -8,7 +8,7 @@
     },
     {
       "src": "server/api/**/*.js",
-      "use": "@vercel/node"
+      "use": "@now/node"
     }
   ],
   "routes": [
