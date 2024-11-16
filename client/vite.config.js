@@ -23,7 +23,7 @@ export default defineConfig(({ mode }) => {
           ? undefined
           : {
               "/api": {
-                target: env.VITE_API_URL || "http://localhost:5000",
+                target: env.VITE_API_URL || "http://localhost:3000",
                 changeOrigin: true,
                 secure: false,
               },

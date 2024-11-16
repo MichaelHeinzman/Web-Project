@@ -1,9 +1,29 @@
-const express = require("express");
-const usersRouter = require("./users");
-
-const router = express.Router({ mergeParams: true });
-
 // Mount routers
-router.use("/users", usersRouter);
+const express = require("express");
+const path = require("path");
+const compression = require("compression");
+const helmet = require("helmet");
+const app = express();
 
-module.exports = router;
+// Middleware for security
+app.use(helmet());
+
+// Middleware for compression
+app.use(compression());
+
+// Middleware for JSON parsing
+app.use(express.json());
+
+// API routes - must be mounted before static file serving
+const router = express.Router();
+const usersRouter = require("./users");
+router.use("/api/users", usersRouter);
+app.use(router);
+
+// Serve static files
+app.use(express.static(path.join(__dirname, "../../client/dist")));
+
+app.listen(3000, () => console.log("Server ready on port 3000."));
+
+// Export app for Vercel
+module.exports = app;
