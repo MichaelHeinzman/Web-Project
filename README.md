@@ -6,7 +6,7 @@ This project is a full-stack web application built with a React frontend and an 
 ---
 
 ## **Features**
-
+Vercel Hosting
 
 
 ### **Frontend**
