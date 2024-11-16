@@ -15,8 +15,9 @@ app.use(compression());
 // Middleware for JSON parsing
 app.use(express.json());
 
-// API routes - must come before static file serving
-app.use("/api", apiRouter);
+app.get("/api/hello", (req, res) => {
+  res.send("Hello from Vercel!");
+});
 
 // Serve static files for React
 console.log("Serving static files for local development...");
